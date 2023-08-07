@@ -2,7 +2,7 @@
 
 namespace TrackingOrders.Core.Repositories
 {
-    public interface IShippingOrderRepository
+    public interface IShippingOrderUpdateRepository
     {
         Task AddAsync(ShippingOrderUpdate update);
 

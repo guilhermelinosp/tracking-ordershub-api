@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using TrackingOrders.Application.Services;
 
-namespace Tracking.Application
+namespace TrackingOrders.Application
 {
-    internal class ApplicationModule
+    public static class ApplicationModule
     {
+        public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            services
+                .AddApplicationServices();
+
+            return services;
+        }
+
+        private static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IShippingOrderUpdateService, ShippingOrderUpdateServiceImp>();
+
+            return services;
+        }
     }
 }

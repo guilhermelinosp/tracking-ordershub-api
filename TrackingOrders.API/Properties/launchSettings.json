@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "Tracking.API": {
+    "TrackingOrders.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TrackingOrders.Core.Entities;
 
-namespace Tracking.Application.Models.InputModels
+namespace TrackingOrders.Application.Models.InputModels
 {
-    internal class AddShippingOrderUpdateInputModel
+    public class AddShippingOrderUpdateInputModel
     {
+        public ShippingOrderUpdate ToEntity()
+        {
+            return new ShippingOrderUpdate(TrackingCode, Description, IsShippingCompleted);
+        }
+
+        public string TrackingCode { get; set; }
+        public string Description { get; set; }
+        public bool IsShippingCompleted { get; set; }
+        public string ContactEmail { get; set; }
     }
 }

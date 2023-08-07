@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TrackingOrders.Application.Models.InputModels;
+using TrackingOrders.Application.Models.ViewModels;
 
-namespace Tracking.Application.Services
+namespace TrackingOrders.Application.Services
 {
-    internal interface IShippingOrderUpdateService
+    public interface IShippingOrderUpdateService
     {
+        Task AddUpdate(AddShippingOrderUpdateInputModel model);
+
+        Task<List<ShippingOrderUpdateViewModel>> GetAllByCode(string code);
     }
 }

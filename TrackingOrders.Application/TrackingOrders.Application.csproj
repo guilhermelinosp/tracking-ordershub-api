@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TrackingOrders.Core\TrackingOrders.Core.csproj" />
+    <ProjectReference Include="..\TrackingOrders.Infrastructure\TrackingOrders.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

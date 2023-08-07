@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tracking.Core.Events
+namespace TrackingOrders.Core.Events
 {
-    internal class ShippingOrderUpdatedEvent
+    public class ShippingOrderUpdatedEvent
     {
+        public ShippingOrderUpdatedEvent(string trackingCode, string contactEmail, string description)
+        {
+            TrackingCode = trackingCode;
+            ContactEmail = contactEmail;
+            Description = description;
+        }
+
+        public string TrackingCode { get; private set; }
+        public string ContactEmail { get; private set; }
+        public string Description { get; private set; }
     }
 }

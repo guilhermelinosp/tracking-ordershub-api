@@ -4,14 +4,14 @@ using TrackingOrders.Core.Events;
 using TrackingOrders.Core.Repositories;
 using TrackingOrders.Infrastructure.Messaging;
 
-namespace TrackingOrders.Application.Services
+namespace TrackingOrders.Application.Services.Implementations
 {
-    public class ShippingOrderUpdateServiceImp : IShippingOrderUpdateService
+    public class ShippingOrderUpdateService : IShippingOrderUpdateService
     {
-        private readonly IShippingOrderUpdateRepository _repository;
+        private readonly IShippingOrderRepository _repository;
         private readonly IMessageBusService _messageBus;
 
-        public ShippingOrderUpdateServiceImp(IShippingOrderUpdateRepository repository, IMessageBusService messageBus)
+        public ShippingOrderUpdateService(IShippingOrderRepository repository, IMessageBusService messageBus)
         {
             _messageBus = messageBus;
             _repository = repository;

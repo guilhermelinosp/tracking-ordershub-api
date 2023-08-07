@@ -1,4 +1,4 @@
-﻿namespace Tracking.Infrastructure.Persistence
+﻿namespace TrackingOrders.Infrastructure.Persistence
 {
     public class MongoDbOptions
     {
