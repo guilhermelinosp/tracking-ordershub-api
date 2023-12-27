@@ -6,50 +6,33 @@ using Tracking.OrdersHub.Domain.Repositories;
 using Tracking.OrdersHub.Infrastructure.Messaging;
 using Tracking.OrdersHub.Infrastructure.Persistence;
 using Tracking.OrdersHub.Infrastructure.Persistence.Repositories;
+using Tracking.OrdersHub.Infrastructure.Services;
 
 namespace Tracking.OrdersHub.Infrastructure
 {
     public static class InfrastructureInjection
     {
-        public static void AddInfrastructureInjection(this IServiceCollection services)
+        public static void AddInfrastructureInjection(this IServiceCollection services, IConfiguration configuration)
         {
             services
-                .AddMongo()
+                .AddMongo(configuration)
                 .AddRepositories()
                 .AddMessageBus();
         }
 
-        private static IServiceCollection AddMongo(this IServiceCollection services)
+        private static IServiceCollection AddMongo(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton(sp =>
-            {
-                var configuration = sp.GetService<IConfiguration>();
-                var options = new MongoDbOptions();
-
-                configuration!.GetSection("MongoDb").Bind(options);
-
-                return options;
-            });
-
             services.AddSingleton<IMongoClient>(sp =>
             {
-                sp.GetService<IConfiguration>();
-                var options = sp.GetService<MongoDbOptions>();
-
-                var client = new MongoClient(options!.ConnectionString);
-                
-                client.GetDatabase(options.Database);
-
+                var client = new MongoClient(configuration["MongoDb_ConnectionString"]);
+                client.GetDatabase(configuration["MongoDb_Database"]);
                 return client;
             });
 
             services.AddTransient(sp =>
             {
-                var options = sp.GetService<MongoDbOptions>();
                 var mongoClient = sp.GetService<IMongoClient>();
-
-                var db = mongoClient!.GetDatabase(options!.Database);
-
+                var db = mongoClient!.GetDatabase(configuration["MongoDb_Database"]);
                 return db;
             });
 
@@ -58,14 +41,14 @@ namespace Tracking.OrdersHub.Infrastructure
 
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IShippingOrderUpdateRepository, ShippingOrderUpdateRepositoryImp>();
+            services.AddScoped<IShippingRepository, ShippingRepository>();
 
             return services;
         }
 
         private static void AddMessageBus(this IServiceCollection services)
         {
-            services.AddScoped<IMessageBusService, RabbitMqService>();
+            services.AddScoped<IRabbitMqService, RabbitMqService>();
         }
     }
 }

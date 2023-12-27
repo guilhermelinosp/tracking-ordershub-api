@@ -6,19 +6,12 @@ namespace Tracking.OrdersHub.API.Controllers
 {
     [ApiController]
     [Route("api/shipping-order-updates")]
-    public class ShippingOrderUpdatesController : ControllerBase
+    public class TrakingOrdersController(ITrakingOrderService service) : ControllerBase
     {
-        private readonly IShippingOrderUpdateService _service;
-
-        public ShippingOrderUpdatesController(IShippingOrderUpdateService service)
-        {
-            _service = service;
-        }
-
         [HttpPost]
-        public async Task<IActionResult> Post(AddShippingOrderUpdateInputModel model)
+        public async Task<IActionResult> Post(AddOrderUpdateInputModel model)
         {
-            await _service.AddUpdate(model);
+            await service.AddUpdate(model);
 
             return NoContent();
         }
@@ -26,7 +19,7 @@ namespace Tracking.OrdersHub.API.Controllers
         [HttpGet("{code}")]
         public async Task<IActionResult> GetAllByCode(string code)
         {
-            var viewModel = await _service.GetAllByCode(code);
+            var viewModel = await service.GetAllByCode(code);
 
             return Ok(viewModel);
         }

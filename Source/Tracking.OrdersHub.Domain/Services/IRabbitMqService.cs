@@ -1,6 +1,6 @@
 namespace Tracking.OrdersHub.Infrastructure.Messaging
 {
-    public interface IMessageBusService
+    public interface IRabbitMqService
     {
         void Publish(object data, string routingKey);
     }
