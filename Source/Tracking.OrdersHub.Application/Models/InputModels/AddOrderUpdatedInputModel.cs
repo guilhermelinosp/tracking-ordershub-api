@@ -2,7 +2,7 @@
 
 namespace Tracking.OrdersHub.Application.Models.InputModels
 {
-    public class AddOrderUpdateInputModel
+    public class AddOrderUpdatedInputModel
     {
         public string? TrackingCode { get; set; }
         public string? Description { get; set; }
