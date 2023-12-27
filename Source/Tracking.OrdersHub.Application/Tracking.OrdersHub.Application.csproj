@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Tracking.OrdersHub.Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tracking.OrdersHub.Domain\Tracking.OrdersHub.Domain.csproj" />
+    <ProjectReference Include="..\Tracking.OrdersHub.Infrastructure\Tracking.OrdersHub.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

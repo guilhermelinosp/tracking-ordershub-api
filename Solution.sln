@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingOrders.API", "TrackingOrders.API\TrackingOrders.API.csproj", "{7B74570F-447D-4359-8886-B6642B383774}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracking.OrdersHub.API", "Source\Tracking.OrdersHub.API\Tracking.OrdersHub.API.csproj", "{7B74570F-447D-4359-8886-B6642B383774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingOrders.Application", "TrackingOrders.Application\TrackingOrders.Application.csproj", "{27E8AA52-0EE9-43ED-A805-465D581817AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracking.OrdersHub.Application", "Source\Tracking.OrdersHub.Application\Tracking.OrdersHub.Application.csproj", "{27E8AA52-0EE9-43ED-A805-465D581817AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingOrders.Core", "TrackingOrders.Core\TrackingOrders.Core.csproj", "{3DAF73CE-DDD9-445E-A50D-D5CB04BCED60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracking.OrdersHub.Domain", "Source\Tracking.OrdersHub.Domain\Tracking.OrdersHub.Domain.csproj", "{3DAF73CE-DDD9-445E-A50D-D5CB04BCED60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackingOrders.Infrastructure", "TrackingOrders.Infrastructure\TrackingOrders.Infrastructure.csproj", "{142747A6-C488-452B-9B22-60126EFD62C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracking.OrdersHub.Infrastructure", "Source\Tracking.OrdersHub.Infrastructure\Tracking.OrdersHub.Infrastructure.csproj", "{142747A6-C488-452B-9B22-60126EFD62C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{C4B42A54-CC05-41AF-90BB-7FEC750632ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8CD80005-C7E0-4842-A6BB-A0390B3E76B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traking.OrdersHub.UnitTest", "Tests\Traking.OrdersHub.UnitTest\Traking.OrdersHub.UnitTest.csproj", "{5E382B66-7082-4281-AB1F-C2A4C8609F05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,11 +39,22 @@ Global
 		{142747A6-C488-452B-9B22-60126EFD62C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{142747A6-C488-452B-9B22-60126EFD62C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{142747A6-C488-452B-9B22-60126EFD62C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E382B66-7082-4281-AB1F-C2A4C8609F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E382B66-7082-4281-AB1F-C2A4C8609F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E382B66-7082-4281-AB1F-C2A4C8609F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E382B66-7082-4281-AB1F-C2A4C8609F05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AE5E497-4A42-424E-B9DA-1CA7A2C0A489}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E382B66-7082-4281-AB1F-C2A4C8609F05} = {8CD80005-C7E0-4842-A6BB-A0390B3E76B5}
+		{27E8AA52-0EE9-43ED-A805-465D581817AA} = {C4B42A54-CC05-41AF-90BB-7FEC750632ED}
+		{7B74570F-447D-4359-8886-B6642B383774} = {C4B42A54-CC05-41AF-90BB-7FEC750632ED}
+		{3DAF73CE-DDD9-445E-A50D-D5CB04BCED60} = {C4B42A54-CC05-41AF-90BB-7FEC750632ED}
+		{142747A6-C488-452B-9B22-60126EFD62C7} = {C4B42A54-CC05-41AF-90BB-7FEC750632ED}
 	EndGlobalSection
 EndGlobal
